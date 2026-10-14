@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 180" role="img" aria-label="GridfinityStudio">
+  <rect width="960" height="180" rx="24" fill="#142e32"/>
+  <g transform="translate(24 18) scale(.5625)">
+    <path d="M45 99 128 147 128 207 45 159Z" fill="#246e6b"/>
+    <path d="M128 147 211 99 211 159 128 207Z" fill="#35a18f"/>
+    <path d="M45 99 128 51 211 99 128 147Z" fill="#173c3e"/>
+    <g fill="none" stroke="#83e6cc" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M45 99 128 51 211 99 128 147Z"/>
+      <path d="M86.5 75 169.5 123M169.5 75 86.5 123"/>
+    </g>
+    <path d="M45 99V159L128 207 211 159V99M128 147V207" fill="none" stroke="#51bba6" stroke-width="5" stroke-linejoin="round"/>
+  </g>
+  <text x="192" y="112" fill="#eff9f5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="65" font-weight="600" letter-spacing="-2">Gridfinity<tspan fill="#83e6cc">Studio</tspan></text>
+</svg>

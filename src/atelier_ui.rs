@@ -387,28 +387,3 @@ fn nav_icon(painter: &egui::Painter, rect: Rect, index: usize, colour: Color32) 
         }
     }
 }
-
-pub fn window_icon() -> egui::IconData {
-    let mut rgba = Vec::with_capacity(64 * 64 * 4);
-    for y in 0..64 {
-        for x in 0..64 {
-            let inside = (12..29).contains(&x) || (35..52).contains(&x);
-            let tile = inside && ((12..29).contains(&y) || (35..52).contains(&y));
-            let color = if tile {
-                if x > 32 && y > 32 {
-                    [203, 135, 93, 255]
-                } else {
-                    [234, 230, 203, 255]
-                }
-            } else {
-                [24, 62, 51, 255]
-            };
-            rgba.extend(color);
-        }
-    }
-    egui::IconData {
-        rgba,
-        width: 64,
-        height: 64,
-    }
-}

@@ -690,8 +690,8 @@
     "repository": "https://github.com/Traverse-Research/gpu-allocator"
   },
   {
-    "name": "gridfinity-studio-design2",
-    "version": "0.1.0",
+    "name": "gridfinity-studio",
+    "version": "0.1.1",
     "license": "MIT",
     "repository": null
   },

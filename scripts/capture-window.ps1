@@ -1,4 +1,4 @@
-param([string]$OutputPath = 'test-results\native-ui.png', [int]$StudioProcessId = 0)
+﻿param([string]$OutputPath = 'test-results\native-ui.png', [int]$StudioProcessId = 0)
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 Add-Type @'
@@ -13,7 +13,7 @@ public class StudioWindow {
 }
 '@
 $studioProcess = if ($StudioProcessId) { Get-Process -Id $StudioProcessId } else {
-    Get-Process -Name GridfinityStudioDesign2,gridfinity-studio-design2 -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 } | Sort-Object StartTime -Descending | Select-Object -First 1
+    Get-Process -Name GridfinityStudio,gridfinitystudio,GridfinityStudioDesign2,gridfinity-studio-design2 -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowHandle -ne 0 } | Sort-Object StartTime -Descending | Select-Object -First 1
 }
 if (-not $studioProcess) { throw 'Kein Gridfinity-Studio-Fenster gefunden.' }
 $windowHandle = $studioProcess.MainWindowHandle

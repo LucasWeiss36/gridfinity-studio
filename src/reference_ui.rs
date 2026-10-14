@@ -32,6 +32,7 @@ impl Studio {
                 ui.spacing_mut().item_spacing = egui::vec2(8.0, 2.0);
                 ui.spacing_mut().button_padding = egui::vec2(12.0, 7.0);
                 ui.horizontal(|ui| {
+                    crate::branding::logo(ui, title_height);
                     let title_width = if self.show_home {
                         ui.available_width() - 105.0
                     } else {
@@ -42,9 +43,12 @@ impl Studio {
                         egui::Layout::top_down(egui::Align::Min),
                         |ui| {
                             ui.label(
-                                RichText::new("GRIDFINITY  /  DESIGN 02")
-                                    .size(10.0)
-                                    .color(palette.muted),
+                                RichText::new(format!(
+                                    "GridfinityStudio  /  v{}",
+                                    env!("CARGO_PKG_VERSION")
+                                ))
+                                .size(10.0)
+                                .color(palette.muted),
                             );
                             let title = if self.show_home {
                                 "Deine Werkstatt"

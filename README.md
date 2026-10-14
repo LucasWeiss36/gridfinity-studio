@@ -1,4 +1,6 @@
-# Gridfinity Studio
+# GridfinityStudio
+
+![GridfinityStudio](assets/branding/logo-lockup.svg)
 
 A native Rust desktop app for designing Gridfinity storage and exporting printable STL files. Models are generated locally, with an interactive 3D preview and light/dark themes.
 
@@ -21,13 +23,13 @@ A native Rust desktop app for designing Gridfinity storage and exporting printab
 
 1. Download the **Windows-x64 ZIP** from [Releases](https://github.com/LucasWeiss36/gridfinity-studio/releases).
 2. Extract the entire archive.
-3. Run `GridfinityStudioDesign2.exe` or `Start.cmd`.
+3. Run `GridfinityStudio.exe` or `Start.cmd`.
 
 Requires **Windows 10/11 x64** and a **DirectX 12-capable graphics driver**. The ZIP includes the required Visual C++ runtime files. Rust is only needed to build from source.
 
 Choose a model, edit its properties, select your printer or enter custom dimensions, then export the desired parts. Example designs are available under **Datei → Beispiele**.
 
-GitHub's **Code → Download ZIP** contains source code, not the ready-to-run app. This repository contains the standalone **Design 2** version.
+GitHub's **Code → Download ZIP** contains source code, not the ready-to-run app.
 
 ## Printing notes
 
@@ -64,7 +66,7 @@ One optional comparison test requires external reference STLs and is ignored by 
 Create a portable package:
 
 ```powershell
-.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-Design2-Windows-x64.zip"
+.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-v0.1.1-Windows-x64.zip"
 ```
 
 Packaging respects `CARGO_TARGET_DIR`. Use `-BuildExe` for a specific EXE or `-CrtDir` for a custom x64 MSVC runtime directory. Existing ZIP files are not overwritten.

@@ -7,7 +7,10 @@
   Bedienhinweise stehen in docs/USER_GUIDE.de.md.
 - Zusätzliche Bibliotheken vor Integration anhand des tatsächlichen Quellcodes,
   ihrer Abhängigkeiten und Build-Skripte prüfen; Version und Umfang dokumentieren.
-- Dieses Repository enthält die eigenständige Variante Design 2.
+- Der öffentliche Produktname lautet GridfinityStudio, ohne Design-Zusatz.
+  EXE und entpackter Ordner heißen GridfinityStudio; ZIP und Fenstertitel
+  dürfen die Versionsnummer enthalten. Die bestehende interne Datenablage
+  GridfinityStudioDesign2 bleibt für vorhandene Projekte kompatibel.
 - Persönliche Entwürfe, lokale Einstellungen, Prüfdaten und Build-Ausgaben
   nicht einchecken. Portable Programme als Release-ZIP bereitstellen.
 - Geometrieänderungen mit maßhaltigen Regressionstests sowie geschlossenen

@@ -10,6 +10,6 @@ if ($TargetDir) { $buildArguments += @('--target-dir', $TargetDir) }
 cargo @buildArguments
 if ($LASTEXITCODE -ne 0) { throw 'Rust-Build fehlgeschlagen.' }
 $buildDir = if ($TargetDir) { $TargetDir } elseif ($env:CARGO_TARGET_DIR) { $env:CARGO_TARGET_DIR } else { 'target' }
-$buildExe = [System.IO.Path]::GetFullPath((Join-Path $buildDir "$target\release\gridfinity-studio-design2.exe"))
+$buildExe = [System.IO.Path]::GetFullPath((Join-Path $buildDir "$target\release\gridfinitystudio.exe"))
 Assert-GridfinityX64Pe -Path $buildExe
-Copy-Item -LiteralPath $buildExe -Destination GridfinityStudioDesign2.exe
+Copy-Item -LiteralPath $buildExe -Destination GridfinityStudio.exe

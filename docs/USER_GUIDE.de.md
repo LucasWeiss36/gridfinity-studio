@@ -1,4 +1,4 @@
-# Gridfinity Studio · Design 2
+# GridfinityStudio
 
 Native Windows-Desktop-App in Rust für Gridfinity-Behälter, Grundplatten,
 Werkzeugeinsätze, Einschubschilder und Tischboxen mit Schubladen. Die Modellberechnung läuft lokal.
@@ -6,16 +6,7 @@ Werkzeugeinsätze, Einschubschilder und Tischboxen mit Schubladen. Die Modellber
 [Portable Windows-Versionen](https://github.com/LucasWeiss36/gridfinity-studio/releases)
 · [Quellcode](https://github.com/LucasWeiss36/gridfinity-studio)
 
-**Design 2** ist eine eigenständige Variante mit einer grauweißen oder
-graphitfarbenen Oberfläche, türkisgrünen Akzenten und neu angeordnetem Arbeitsbereich. Die
-Modellfunktionen und das `.gridfinity.json`-Dateiformat entsprechen Design 1.
-Beide Programme können unabhängig voneinander verwendet werden.
-
-Diese Variante hat eine eigene Projektablage und eigene Druckereinstellungen
-unter `%LOCALAPPDATA%\GridfinityStudioDesign2`. Die Daten von Design 1 werden
-nicht automatisch übernommen. Vorhandene Entwürfe über **Projektdatei öffnen**
-laden und in der neuen Ablage speichern; der Export nach STL funktioniert in
-beiden Varianten gleich. Externe Werkzeug-STLs müssen weiterhin vorhanden sein.
+Entwürfe und Einstellungen liegen unter `%LOCALAPPDATA%\GridfinityStudioDesign2`. Vorhandene `.gridfinity.json`-Dateien lassen sich weiterhin öffnen. Externe Werkzeug-STLs müssen erhalten bleiben.
 
 ## Starten
 
@@ -23,8 +14,8 @@ Zum Benutzen der App die Windows-x64-ZIP unter **Releases** herunterladen und
 vollständig entpacken. Die GitHub-Schaltfläche **Code → Download ZIP** enthält
 den Quellcode; daraus muss die Anwendung zunächst gebaut werden.
 
-Im Ordner **Design 2** die `GridfinityStudioDesign2.exe` öffnen.
-Eine optionale Verknüpfung heißt **Gridfinity Studio - Design 2**.
+Im Ordner **GridfinityStudio** die `GridfinityStudio.exe` öffnen.
+Eine optionale Verknüpfung heißt **GridfinityStudio**.
 Alternativ `Start.cmd` verwenden. Auf der Startseite links einen Modelltyp im
 Katalog auswählen. Rechts erscheinen die große Vorschau und die Schaltfläche
 zum Erstellen, zum Beispiel **Kasten erstellen**.
@@ -357,7 +348,7 @@ gilt innerhalb des Skripts.
 Für eine portable Ausgabe einschließlich der Visual-C++-Laufzeitdateien:
 
 ```powershell
-.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-Design2-Windows-x64.zip"
+.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-v0.1.1-Windows-x64.zip"
 ```
 
 Ein bereits vorhandenes ZIP wird nicht überschrieben. Bei einem eigenen
@@ -381,8 +372,8 @@ ausgeführt werden. Er benötigt die lokal abgelegten Original-STL-Exporte in
 Batch-Export und direkter Projektstart:
 
 ```powershell
-.\GridfinityStudioDesign2.exe --export examples\tools.gridfinity.json --output output\tools
-.\GridfinityStudioDesign2.exe --project examples\deskbox.gridfinity.json
+.\GridfinityStudio.exe --export examples\tools.gridfinity.json --output output\tools
+.\GridfinityStudio.exe --project examples\deskbox.gridfinity.json
 ```
 
 ## Quellen
