@@ -1,0 +1,11 @@
+{
+  "title": "Tischbox mit zwei Schubladen",
+  "product": "DeskBox",
+  "grid_x": 2,
+  "grid_y": 2,
+  "drawer_count": 2,
+  "drawer_height_u": 3,
+  "drawer_clearance": 0.4,
+  "top_grid": true,
+  "label": "BITS"
+}

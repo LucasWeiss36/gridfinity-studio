@@ -1,0 +1,15 @@
+{
+  "title": "Box mit Etikettenfeld",
+  "product": "Bin",
+  "reference_profile": true,
+  "wall": 1.2,
+  "floor": 1.21,
+  "grid_x": 2,
+  "grid_y": 2,
+  "height_u": 3,
+  "label_area": "Recess",
+  "label_width": 30.0,
+  "label_height": 9.0,
+  "label_depth": 0.4,
+  "label": ""
+}

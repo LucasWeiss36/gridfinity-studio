@@ -1,0 +1,13 @@
+{
+  "title": "Werkzeugeinsatz",
+  "product": "Insert",
+  "grid_x": 3,
+  "grid_y": 2,
+  "height_u": 4,
+  "label": "WERKZEUG",
+  "cutouts": [
+    {"name":"BIT", "shape":"Hexagon", "x":-40.0,"y":-10.0,"width":8.0,"length":8.0,"depth":12.0,"angle":0.0,"clearance":0.3,"stl_path":null},
+    {"name":"RUND", "shape":"Circle", "x":-15.0,"y":10.0,"width":18.0,"length":18.0,"depth":14.0,"angle":0.0,"clearance":0.3,"stl_path":null},
+    {"name":"GRIFF", "shape":"Rectangle", "x":25.0,"y":0.0,"width":28.0,"length":45.0,"depth":16.0,"angle":0.0,"clearance":0.3,"stl_path":null}
+  ]
+}

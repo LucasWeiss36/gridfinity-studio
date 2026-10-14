@@ -1,0 +1,15 @@
+{
+  "title": "Box mit Schildaufnahme",
+  "product": "Bin",
+  "reference_profile": true,
+  "wall": 1.2,
+  "floor": 1.21,
+  "grid_x": 2,
+  "grid_y": 2,
+  "height_u": 3,
+  "label_area": "SlideIn",
+  "label_width": 40.0,
+  "label_height": 12.0,
+  "label_insert_clearance": 0.25,
+  "label": "KABEL"
+}

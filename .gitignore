@@ -1,0 +1,28 @@
+/target/
+/reviews/
+/output/
+/GridfinityStudio.exe
+/GridfinityStudioDesign2.exe
+/design1-original.sha256
+/test-results/
+/build.log
+/dist/
+
+# Compiled and packaged output
+*.exe
+*.dll
+*.pdb
+*.zip
+*.log
+
+# Personal designs and machine-specific settings
+*.gridfinity.json
+!/examples/*.gridfinity.json
+/Projekte/
+/backups/
+/printer.json
+/appearance.json
+/.env
+/.env.*
+/.vscode/
+/.idea/

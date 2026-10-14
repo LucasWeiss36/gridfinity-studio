@@ -1,0 +1,9 @@
+{
+  "title": "Grundplatte mit Clip-Aufnahmen",
+  "product": "Baseplate",
+  "grid_x": 2,
+  "grid_y": 2,
+  "baseplate_open": true,
+  "baseplate_clips": true,
+  "clip_clearance": 0.0
+}

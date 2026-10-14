@@ -1,0 +1,16 @@
+{
+  "title": "Vier-Fach-Box",
+  "product": "Bin",
+  "reference_profile": true,
+  "wall": 1.2,
+  "floor": 1.21,
+  "grid_x": 2,
+  "grid_y": 2,
+  "height_u": 3,
+  "label": "SCHRAUBEN",
+  "magnets": true,
+  "walls": [
+    {"x1": -40.48, "y1": 0.0, "x2": 40.48, "y2": 0.0, "thickness": 1.2, "height": 10.0},
+    {"x1": 0.0, "y1": -40.48, "x2": 0.0, "y2": 40.48, "thickness": 1.2, "height": 10.0}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Drucköffnung – Federprototyp",
+  "product": "DeskBox",
+  "grid_x": 2,
+  "grid_y": 2,
+  "drawer_count": 1,
+  "drawer_height_u": 3,
+  "drawer_clearance": 0.4,
+  "top_grid": false,
+  "printed_push_open": true,
+  "spring_thickness": 0.8,
+  "label": "TEST"
+}

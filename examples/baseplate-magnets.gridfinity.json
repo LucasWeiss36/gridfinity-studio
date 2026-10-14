@@ -1,0 +1,14 @@
+{
+  "title": "Grundplatte mit Magneten und Schrauben",
+  "product": "Baseplate",
+  "grid_x": 2,
+  "grid_y": 2,
+  "baseplate_open": true,
+  "baseplate_clips": true,
+  "magnets": true,
+  "magnet_corners_only": false,
+  "magnet_diameter": 6.2,
+  "magnet_depth": 2.4,
+  "screws": true,
+  "screw_corners_only": true
+}
