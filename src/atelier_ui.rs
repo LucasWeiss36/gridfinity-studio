@@ -88,15 +88,17 @@ impl Studio {
                     ui.add_space(6.0);
                 }
                 let mode_rect = Rect::from_min_size(
-                    egui::pos2(ui.max_rect().left(), ui.max_rect().bottom() - 109.0),
-                    Vec2::new(74.0, 101.0),
+                    egui::pos2(ui.max_rect().left(), ui.max_rect().bottom() - 149.0),
+                    Vec2::new(74.0, 141.0),
                 );
                 ui.scope_builder(egui::UiBuilder::new().max_rect(mode_rect), |ui| {
                     ui.vertical_centered(|ui| {
                         ui.label(RichText::new("DARSTELLUNG").size(8.0).color(p.rail_text));
-                        for (mode, label) in
-                            [(theme::Mode::Light, "Hell"), (theme::Mode::Dark, "Dunkel")]
-                        {
+                        for (mode, label) in [
+                            (theme::Mode::System, "System"),
+                            (theme::Mode::Light, "Hell"),
+                            (theme::Mode::Dark, "Dunkel"),
+                        ] {
                             let selected = self.appearance.mode == mode;
                             if ui
                                 .add_sized(
@@ -112,10 +114,12 @@ impl Studio {
                                     .stroke(Stroke::new(1.0_f32, p.rail_active))
                                     .corner_radius(6),
                                 )
-                                .on_hover_text(if mode == theme::Mode::Dark {
-                                    "Dunkelmodus"
-                                } else {
-                                    "Hellmodus"
+                                .on_hover_text(match mode {
+                                    theme::Mode::System => {
+                                        "Hellen oder dunklen Modus des Betriebssystems übernehmen"
+                                    }
+                                    theme::Mode::Light => "Hellmodus",
+                                    theme::Mode::Dark => "Dunkelmodus",
                                 })
                                 .clicked()
                                 && let Err(error) = self.appearance.switch(ctx, mode)

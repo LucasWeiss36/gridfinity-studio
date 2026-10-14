@@ -1,4 +1,4 @@
-//! Design-2-only appearance. Model files and printer preferences are independent.
+//! Appearance preferences and palettes, including the operating-system theme.
 use anyhow::{Context, Result};
 use eframe::egui::{self, Color32, Stroke};
 use serde::{Deserialize, Serialize};
@@ -13,12 +13,14 @@ use std::{
 #[serde(rename_all = "lowercase")]
 pub enum Mode {
     #[default]
+    System,
     Light,
     Dark,
 }
 
 #[derive(Default, Serialize, Deserialize)]
 pub struct Appearance {
+    #[serde(default)]
     pub mode: Mode,
     #[serde(skip)]
     path: Option<PathBuf>,
@@ -178,12 +180,21 @@ pub fn for_dark(dark: bool) -> Palette {
 }
 
 pub fn apply(ctx: &egui::Context, mode: Mode) {
-    let dark = mode == Mode::Dark;
-    ctx.set_theme(if dark {
-        egui::ThemePreference::Dark
-    } else {
-        egui::ThemePreference::Light
+    // Configure both palettes once. egui selects the matching style on every
+    // OS ThemeChanged event, so following the system also works while open.
+    for theme in [egui::Theme::Light, egui::Theme::Dark] {
+        configure_style(ctx, theme);
+    }
+    ctx.set_theme(match mode {
+        Mode::System => egui::ThemePreference::System,
+        Mode::Light => egui::ThemePreference::Light,
+        Mode::Dark => egui::ThemePreference::Dark,
     });
+    ctx.request_repaint();
+}
+
+fn configure_style(ctx: &egui::Context, theme: egui::Theme) {
+    let dark = theme == egui::Theme::Dark;
     let p = for_dark(dark);
     let mut v = if dark {
         egui::Visuals::dark()
@@ -216,8 +227,8 @@ pub fn apply(ctx: &egui::Context, mode: Mode) {
     v.hyperlink_color = p.accent;
     v.warn_fg_color = p.warning;
     v.error_fg_color = p.error;
-    ctx.set_visuals(v);
-    ctx.style_mut(|s| {
+    ctx.set_visuals_of(theme, v);
+    ctx.style_mut_of(theme, |s| {
         s.spacing.item_spacing = egui::vec2(8.0, 7.0);
         s.spacing.button_padding = egui::vec2(12.0, 7.0);
         s.spacing.interact_size.y = 28.0;
@@ -228,7 +239,6 @@ pub fn apply(ctx: &egui::Context, mode: Mode) {
         s.text_styles
             .insert(egui::TextStyle::Small, egui::FontId::proportional(11.0));
     });
-    ctx.request_repaint();
 }
 
 #[cfg(test)]
@@ -256,8 +266,12 @@ mod tests {
                 .as_nanos()
         ));
         let path = root.join("appearance.json");
-        assert_eq!(Appearance::read(&path).unwrap().mode, Mode::Light);
-        for mode in [Mode::Dark, Mode::Light] {
+        assert_eq!(Appearance::read(&path).unwrap().mode, Mode::System);
+        assert_eq!(
+            serde_json::from_str::<Appearance>("{}").unwrap().mode,
+            Mode::System
+        );
+        for mode in [Mode::Dark, Mode::Light, Mode::System] {
             Appearance { mode, path: None }.save_to(&path).unwrap();
             assert_eq!(Appearance::read(&path).unwrap().mode, mode);
         }
@@ -265,6 +279,45 @@ mod tests {
         assert!(Appearance::read(&path).is_err());
         fs::remove_file(path).unwrap();
         fs::remove_dir(root).unwrap();
+    }
+
+    #[test]
+    fn system_mode_tracks_live_os_changes_and_manual_modes_override_them() {
+        let ctx = egui::Context::default();
+        apply(&ctx, Mode::System);
+        for system in [egui::Theme::Light, egui::Theme::Dark, egui::Theme::Light] {
+            let _ = ctx.run(
+                egui::RawInput {
+                    system_theme: Some(system),
+                    ..Default::default()
+                },
+                |ctx| {
+                    assert_eq!(ctx.theme(), system);
+                    assert_eq!(
+                        ctx.style().visuals.panel_fill,
+                        for_dark(system == egui::Theme::Dark).panel
+                    );
+                    assert_eq!(ctx.style().spacing.interact_size.y, 28.0);
+                },
+            );
+        }
+        for (manual, expected) in [
+            (Mode::Light, egui::Theme::Light),
+            (Mode::Dark, egui::Theme::Dark),
+        ] {
+            apply(&ctx, manual);
+            for system in [egui::Theme::Light, egui::Theme::Dark] {
+                let _ = ctx.run(
+                    egui::RawInput {
+                        system_theme: Some(system),
+                        ..Default::default()
+                    },
+                    |ctx| assert_eq!(ctx.theme(), expected),
+                );
+            }
+        }
+        apply(&ctx, Mode::System);
+        assert_eq!(ctx.theme(), ctx.system_theme().unwrap());
     }
 
     #[test]

@@ -29,6 +29,8 @@ Requires **Windows 10/11 x64** and a **DirectX 12-capable graphics driver**. The
 
 Choose a model, edit its properties, select your printer or enter custom dimensions, then export the desired parts. Example designs are available under **Datei → Beispiele**.
 
+Appearance defaults to **System**, following Windows light/dark mode even while the app is open. Select **System**, **Hell** (light) or **Dunkel** (dark) in the lower-left sidebar; your choice is saved.
+
 GitHub's **Code → Download ZIP** contains source code, not the ready-to-run app.
 
 ## Printing notes
@@ -66,7 +68,7 @@ One optional comparison test requires external reference STLs and is ignored by 
 Create a portable package:
 
 ```powershell
-.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-v0.1.1-Windows-x64.zip"
+.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-v0.1.2-Windows-x64.zip"
 ```
 
 Packaging respects `CARGO_TARGET_DIR`. Use `-BuildExe` for a specific EXE or `-CrtDir` for a custom x64 MSVC runtime directory. Existing ZIP files are not overwritten.

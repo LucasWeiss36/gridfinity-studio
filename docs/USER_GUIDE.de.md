@@ -27,7 +27,11 @@ Die linke Leiste führt zu **Start**, **Entwurf**, **Projekte**, **Drucker** und
 Eigenschaften: Abmessungen, Ausführung, Wände, Aussparungen und Beschriftung.
 Die Abschnitte lassen sich nach Bedarf aufklappen.
 
-Unten links zwischen **Hell** und **Dunkel** wechseln. Die Auswahl gilt für
+Unten links zwischen **System**, **Hell** und **Dunkel** wechseln. **System** ist
+die Standardeinstellung für neue Installationen und übernimmt den hellen oder
+dunklen Windows-App-Modus, auch bei Änderungen während die App geöffnet ist.
+Bereits gespeicherte manuelle Einstellungen bleiben erhalten; zum automatischen
+Modus **System** auswählen. Die Auswahl gilt für
 die Oberfläche und Vorschau und wird unabhängig vom Modell unter
 `%LOCALAPPDATA%\GridfinityStudioDesign2\appearance.json` gespeichert.
 
@@ -348,7 +352,7 @@ gilt innerhalb des Skripts.
 Für eine portable Ausgabe einschließlich der Visual-C++-Laufzeitdateien:
 
 ```powershell
-.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-v0.1.1-Windows-x64.zip"
+.\scripts\package.ps1 -OutputPath "$PWD\GridfinityStudio-v0.1.2-Windows-x64.zip"
 ```
 
 Ein bereits vorhandenes ZIP wird nicht überschrieben. Bei einem eigenen
