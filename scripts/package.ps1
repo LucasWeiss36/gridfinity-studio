@@ -25,7 +25,7 @@ New-Item -ItemType Directory -Force $appDir | Out-Null
 Copy-Item -LiteralPath $BuildExe -Destination (Join-Path $appDir 'GridfinityStudioDesign2.exe')
 New-Item -ItemType Directory (Join-Path $appDir 'examples') | Out-Null
 Get-ChildItem -LiteralPath (Join-Path $projectDir 'examples') -Filter '*.gridfinity.json' -File | Copy-Item -Destination (Join-Path $appDir 'examples')
-foreach ($item in @('assets','licenses','README.md','PRINTERS.md','SECURITY-REVIEW.md','THIRD-PARTY-NOTICES.md','LICENSE')) {
+foreach ($item in @('assets','docs','licenses','README.md','PRINTERS.md','SECURITY-REVIEW.md','THIRD-PARTY-NOTICES.md','LICENSE')) {
     Copy-Item -LiteralPath (Join-Path $projectDir $item) -Destination $appDir -Recurse
 }
 New-Item -ItemType Directory (Join-Path $appDir 'scripts') | Out-Null

@@ -2,7 +2,9 @@
 
 - Desktop-Oberfläche und Anwendungslogik in Rust belassen; kein Python-Backend,
   Electron oder zusätzlicher Webserver als Laufzeitvoraussetzung.
-- Deutsche Oberfläche und Dokumentation mit echten Umlauten und ß.
+- Deutsche Oberfläche und deutsche Dokumentation mit echten Umlauten und ß.
+  Die README ist eine kurze englische Projektübersicht; ausführliche deutsche
+  Bedienhinweise stehen in docs/USER_GUIDE.de.md.
 - Zusätzliche Bibliotheken vor Integration anhand des tatsächlichen Quellcodes,
   ihrer Abhängigkeiten und Build-Skripte prüfen; Version und Umfang dokumentieren.
 - Dieses Repository enthält die eigenständige Variante Design 2.
